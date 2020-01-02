@@ -6,7 +6,7 @@ module Monobank
       ENDPOINT = 'bank/currency'.freeze
 
       def call
-        data = connection.get("/#{ENDPOINT}")
+        connection.get("/#{ENDPOINT}")
       end
     end
   end
