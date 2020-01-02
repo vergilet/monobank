@@ -19,7 +19,7 @@ module Monobank
 
       def headers
         {
-          "X-Token" => token
+          "X-Token" => token.to_s
         }
       end
     end
