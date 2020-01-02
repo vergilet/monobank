@@ -1,16 +1,14 @@
+# frozen_string_literal: true
+
 require 'monobank/version'
 require 'monobank/client'
+require 'monobank/resources/base'
+require 'monobank/resources/bank/currency'
+require 'monobank/resources/personal/client_info'
+require 'monobank/resources/personal/statements'
+require 'monobank/client'
+require 'monobank/api'
+
 require 'forwardable'
 
-module Monobank
-  extend SingleForwardable
-  def_delegators :client
-
-  def self.client
-    @client ||= Client.new
-  end
-
-  class << self
-    attr_accessor :token
-  end
-end
+module Monobank; end

@@ -22,6 +22,11 @@ Or install it yourself as:
 
 ## Usage
 
+```ruby
+client = Monobank::Client.new(token)
+Monobank::Api.new(client).bank_currency
+```
+
 TODO: Write usage instructions here
 
 ## Development

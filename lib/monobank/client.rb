@@ -1,15 +1,32 @@
-require 'monobank/connection'
-require 'monobank/bank/currency'
-require 'monobank/personal/client_info'
+# frozen_string_literal: true
+
+require 'httparty'
 
 module Monobank
   class Client
-    def bank_currency
-      Bank::Currency.new.call
+    include HTTParty
+    base_uri 'api.monobank.ua'
+
+    def initialize(token = nil)
+      @token = token
     end
 
-    def client_info(token:)
-      Personal::ClientInfo.new(token).call
+    def get(endpoint)
+      self.class.get(endpoint, request_options)
+    end
+
+    private
+
+    attr_reader :token
+
+    def request_options
+      return {} if token.nil?
+
+      {
+        headers: {
+          'X-Token' => token.to_s
+        }
+      }
     end
   end
 end

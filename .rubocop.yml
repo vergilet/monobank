@@ -1,0 +1,7 @@
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'monobank.gemspec'
+    - 'spec/spec_helper.rb'
+Documentation:
+  Enabled: false
