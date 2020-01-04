@@ -1,27 +1,9 @@
-require 'monobank/endpoint'
+require 'monobank/personal/endpoint'
 
 module Monobank
-  class Personal
+  module Personal
     class ClientInfo < Endpoint
-      ENDPOINT = 'personal/client-info'.freeze
-
-      def initialize(token)
-        @token = token
-      end
-
-      def call
-        connection.get("/#{ENDPOINT}", headers: headers )
-      end
-
-      private
-
-      attr_reader :token
-
-      def headers
-        {
-          "X-Token" => token.to_s
-        }
-      end
+      ENDPOINT = '/personal/client-info'.freeze
     end
   end
 end

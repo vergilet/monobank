@@ -4,7 +4,7 @@ require 'forwardable'
 
 module Monobank
   extend SingleForwardable
-  def_delegators :client
+  def_delegators :client, :bank_currency, :client_info, :statement
 
   def self.client
     @client ||= Client.new

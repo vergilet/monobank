@@ -1,13 +1,9 @@
-require 'monobank/endpoint'
+require 'monobank/base_endpoint'
 
 module Monobank
   module Bank
-    class Currency < Endpoint
-      ENDPOINT = 'bank/currency'.freeze
-
-      def call
-        connection.get("/#{ENDPOINT}")
-      end
+    class Currency < BaseEndpoint
+      ENDPOINT = '/bank/currency'.freeze
     end
   end
 end
