@@ -5,7 +5,7 @@
 <a href="https://rubygems.org/gems/monobank"><img align="right" src="https://user-images.githubusercontent.com/2478436/51829691-c55cc000-22f6-11e9-99a5-42f88a8f2a55.png" width="56" height="56" /></a>
 </p>
 <p align="center">
-   <a href="https://rubygems.org/gems/monobank"><img width="160" src="https://user-images.githubusercontent.com/2478436/71855944-1d956800-30eb-11ea-986f-b4ced9bc6ae2.png" /></a>
+   <a href="https://rubygems.org/gems/monobank"><img width="360" src="https://user-images.githubusercontent.com/2478436/71855944-1d956800-30eb-11ea-986f-b4ced9bc6ae2.png" /></a>
 </p>
 
 
