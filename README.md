@@ -1,5 +1,14 @@
 # Monobank
 
+<p align="right">
+    <a href="https://github.com/vergilet/monobank"><img align="" src="https://user-images.githubusercontent.com/2478436/51829223-cb05d600-22f5-11e9-9245-bc6e82dcf028.png" width="56" height="56" /></a>
+<a href="https://rubygems.org/gems/monobank"><img align="right" src="https://user-images.githubusercontent.com/2478436/51829691-c55cc000-22f6-11e9-99a5-42f88a8f2a55.png" width="56" height="56" /></a>
+</p>
+<p align="center">
+   <a href="https://rubygems.org/gems/monobank"><img width="460" src="https://user-images.githubusercontent.com/2478436/71855407-9dbace00-30e9-11ea-996a-ff131ec89f1c.png" /></a>
+</p>
+
+
 :smirk_cat: Unofficial Ruby Gem for [Monobank API](https://api.monobank.ua/docs/).
 
 ## Installation
