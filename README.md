@@ -32,7 +32,7 @@ Monobank.client_info(token: YOUR_MONO_TOKEN)
 Monobank.statement(token: YOUR_MONO_TOKEN, account_id: ACCOUNT_ID, from: 1575721820)
 ```
 
-#### Bank Currency
+#### :radio_button: Bank Currency
 
 ##### API Method: [bank-currency](https://api.monobank.ua/docs/#operation--bank-currency-get)
 
@@ -55,7 +55,7 @@ some_currency.rate_buy          # Float
 some_currency.rate_cross        # Float
 ```
 
-#### Client Info
+#### :radio_button: Client Info
 
 ##### API Method: [personal-client-info](https://api.monobank.ua/docs/#operation--personal-client-info-get)
 
@@ -68,7 +68,7 @@ some_currency.rate_cross        # Float
     client_info.web_hook_url        # String, webhook url 
     client_info.accounts            # array of accounts (type Monobank::Resources::Personal::Account)
 ```
-##### Account
+##### :radio_button: Account
 
 ```ruby
     account = client_info.accounts.first
@@ -82,7 +82,7 @@ some_currency.rate_cross        # Float
     account.cashback_type           # String, None, UAH, Miles 
 ```
 
-#### Statement
+#### :radio_button: Statement
 
 ##### API Method: [personal-statement](https://api.monobank.ua/docs/#operation--personal-statement--account---from---to--get)
 
