@@ -1,19 +1,10 @@
+require 'monobank/resources/base'
+
 module Monobank
   module Resources
     module Personal
-      class Statement
-
-        def initialize(attributes)
-          @attributes = {}
-          attributes.each do |key, value|
-            @attributes[method_name(key)] = value
-            self.class.define_method(method_name(key)) { value }
-          end
-        end
-
-        def method_name(key)
-          key.gsub(/(.)([A-Z])/,'\1_\2').downcase
-        end
+      class Statement < Base
+        define_fields %w[id time description mcc hold amount operation_amount currency_code commission_rate cashback_amount balance]
       end
     end
   end

@@ -1,15 +1,12 @@
+require 'monobank/endpoint'
 require 'monobank/resources/bank/currency'
 
 module Monobank
   module Bank
-    class Currency
+    class Currency < Endpoint
       ENDPOINT = '/bank/currency'.freeze
 
-      def call
-        attributes = connection.get(pathname, options)
-        define_resources(attributes)
-      end
-
+      private
 
       def define_resources(attributes)
         attributes.map do |attrs|
@@ -19,14 +16,6 @@ module Monobank
 
       def pathname
         ENDPOINT
-      end
-
-      def options
-        {}
-      end
-
-      def connection
-        @connection ||= Connection.new
       end
     end
   end
