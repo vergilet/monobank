@@ -22,14 +22,14 @@ Or install it yourself as:
 Use available methods to gather needed data:
 
 ```ruby
-# Bank currency
-Monobank.bank_currency
+    # Bank currency
+    Monobank.bank_currency
 
-# Client Info
-Monobank.client_info(token: YOUR_MONO_TOKEN)
+    # Client Info
+    Monobank.client_info(token: YOUR_MONO_TOKEN)
 
-# Statement
-Monobank.statement(token: YOUR_MONO_TOKEN, account_id: ACCOUNT_ID, from: 1575721820)
+    # Statement
+    Monobank.statement(token: YOUR_MONO_TOKEN, account_id: ACCOUNT_ID, from: 1575721820)
 ```
 
 #### :radio_button: Bank Currency
