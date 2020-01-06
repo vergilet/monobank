@@ -116,11 +116,6 @@ some_currency.rate_cross        # Float
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/monobank. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/monobank/blob/master/CODE_OF_CONDUCT.md).
-
-
-## Contributing
-
 Bug reports and pull requests are welcome on GitHub at https://github.com/vergilet/monobank
     
 Feel free to contribute:
