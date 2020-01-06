@@ -1,8 +1,12 @@
+require 'monobank/resources/error'
+
 module Monobank
   class Endpoint
     def call
       attributes = connection.get(pathname, options)
-      define_resources(attributes)
+      return define_resources(attributes) if attributes.success?
+
+      Monobank::Resources::Error.new(attributes)
     end
 
     private
