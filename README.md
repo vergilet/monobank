@@ -1,5 +1,6 @@
 # Monobank
 
+:smirk_cat: Unofficial Ruby Gem for [Monobank API](https://api.monobank.ua/docs/).
 
 ## Installation
 
