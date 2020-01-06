@@ -1,8 +1,15 @@
+
+<p align="right">
+    <a href="https://github.com/vergilet/monobank"><img align="" src="https://user-images.githubusercontent.com/2478436/51829223-cb05d600-22f5-11e9-9245-bc6e82dcf028.png" width="56" height="56" /></a>
+<a href="https://rubygems.org/gems/monobank"><img align="right" src="https://user-images.githubusercontent.com/2478436/51829691-c55cc000-22f6-11e9-99a5-42f88a8f2a55.png" width="56" height="56" /></a>
+</p>
+<p align="center">
+   <a href="https://rubygems.org/gems/monobank"><img width="460" src="https://user-images.githubusercontent.com/2478436/71856112-95639280-30eb-11ea-932e-dd8cbe851858.png" /></a>
+</p>
+
 # Monobank
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/monobank`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+:smirk_cat: Unofficial Ruby Gem for [Monobank API](https://api.monobank.ua/docs/).
 
 ## Installation
 
@@ -20,25 +27,121 @@ Or install it yourself as:
 
     $ gem install monobank
 
-## Usage
+## :radio_button: Endpoints
 
-TODO: Write usage instructions here
+Use available methods to gather needed data:
 
-## Development
+```ruby
+    # Bank currency
+    Monobank.bank_currency
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+    # Client Info
+    Monobank.client_info(token: YOUR_MONO_TOKEN)
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+    # Statement
+    Monobank.statement(token: YOUR_MONO_TOKEN, account_id: ACCOUNT_ID, from: 1575721820)
+```
+
+
+#### :radio_button: Bank Currency
+
+##### API Method: [bank-currency](https://api.monobank.ua/docs/#operation--bank-currency-get)
+
+
+```ruby
+    bank_currency = Monobank.bank_currency
+    bank_currency                   # Array
+```
+
+```ruby
+    some_currency = bank_currency.first
+    some_currency.class             # Monobank::Resources::Bank::Currency
+```
+
+```ruby
+    some_currency.currency_code_a   # Integer, ISO 4217
+    some_currency.currency_code_a   # Integer, ISO 4217
+    some_currency.date              # Integer, Unix time in sec (use Time.at)
+    some_currency.rate_sell         # Float
+    some_currency.rate_buy          # Float
+    some_currency.rate_cross        # Float
+```
+
+#### :radio_button: Client Info
+
+##### API Method: [personal-client-info](https://api.monobank.ua/docs/#operation--personal-client-info-get)
+
+```ruby
+    client_info = Monobank.client_info(token: YOUR_MONO_TOKEN)
+    client_info                     # Monobank::Resources::Personal::ClientInfo
+```
+```ruby
+    client_info.name                # String, client name
+    client_info.web_hook_url        # String, webhook url 
+    client_info.accounts            # array of accounts (type Monobank::Resources::Personal::Account)
+```
+##### :heavy_minus_sign::radio_button: Account
+
+```ruby
+    account = client_info.accounts.first
+    account                         # Monobank::Resources::Personal::Account
+```
+```ruby
+    account.id                      # String, Account identifier
+    account.balance                 # Integer, Balance in cents
+    account.credit_limit            # Integer, Credit limit
+    account.currency_code           # Integer, ISO 4217
+    account.cashback_type           # String, None, UAH, Miles 
+```
+
+#### :radio_button: Statement
+
+##### API Method: [personal-statement](https://api.monobank.ua/docs/#operation--personal-statement--account---from---to--get)
+
+```ruby
+    account_id = 'QWERTY-1SdSD' # String, ClientInfo -> Account ID
+    from = 1575721820           # Integer, Unix time in sec (use Time.at)
+```
+
+```ruby
+    statements = Monobank.statement(token: YOUR_MONO_TOKEN, account_id: ACCOUNT_ID, from: 1575721820)
+    statements                  # array of accounts (type Monobank::Resources::Personal::Statement)
+```
+
+```ruby
+    statement = statements.first
+    statement                   # Monobank::Resources::Personal::Statement
+```
+```ruby
+    statement.id                # String, transaction ID
+    statement.time              # Integer, Unix time in sec (use Time.at)
+    statement.description       # String, transaction description
+    statement.mcc               # Integer, Merchant Category Code, (ISO 18245)
+    statement.hold              # Boolean, Lock status
+    statement.amount            # Integer, Amount in cents
+    statement.operation_amount  # Integer, Amount in cents
+    statement.currency_code     # Integer, ISO 4217
+    statement.commission_rate   # Integer, commission amount in cents
+    statement.cashback_amount   # Integer, cashback amount in cents
+    statement.balance           # Integer, balance in cents
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/monobank. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/monobank/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/vergilet/monobank
+    
+Feel free to contribute:
+1. Fork it (https://github.com/vergilet/monobank/fork)
+2. Create your feature branch (git checkout -b my-new-feature)
+3. Commit your changes (git commit -am 'Add some feature')
+4. Push to the branch (git push origin my-new-feature)
+5. Create new Pull Request
+
 
 
 ## License
+The gem is available as open source under the terms of the MIT License.
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+Copyright © 2020 Yaro & Tolik.
 
-## Code of Conduct
-
-Everyone interacting in the Monobank project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/monobank/blob/master/CODE_OF_CONDUCT.md).
+[![GitHub license](https://img.shields.io/dub/l/vibe-d.svg)](https://raw.githubusercontent.com/vergilet/monobank/master/LICENSE)
