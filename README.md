@@ -32,9 +32,11 @@ Use available methods to gather needed data:
     Monobank.statement(token: YOUR_MONO_TOKEN, account_id: ACCOUNT_ID, from: 1575721820)
 ```
 
+
 #### :radio_button: Bank Currency
 
 ##### API Method: [bank-currency](https://api.monobank.ua/docs/#operation--bank-currency-get)
+
 
 ```ruby
     bank_currency = Monobank.bank_currency
@@ -68,7 +70,7 @@ Use available methods to gather needed data:
     client_info.web_hook_url        # String, webhook url 
     client_info.accounts            # array of accounts (type Monobank::Resources::Personal::Account)
 ```
-##### :radio_button: Account
+##### :radio_button: :radio_button: Account
 
 ```ruby
     account = client_info.accounts.first
