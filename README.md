@@ -19,6 +19,8 @@ Or install it yourself as:
 
 ## Endpoints
 
+Use available methods to gather needed data:
+
 ```ruby
 # Bank currency
 Monobank.bank_currency
