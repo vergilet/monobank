@@ -70,7 +70,7 @@ Use available methods to gather needed data:
     client_info.web_hook_url        # String, webhook url 
     client_info.accounts            # array of accounts (type Monobank::Resources::Personal::Account)
 ```
-##### :radio_button: :radio_button: Account
+##### :radio_button::radio_button: Account
 
 ```ruby
     account = client_info.accounts.first
