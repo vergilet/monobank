@@ -37,22 +37,22 @@ Monobank.statement(token: YOUR_MONO_TOKEN, account_id: ACCOUNT_ID, from: 1575721
 ##### API Method: [bank-currency](https://api.monobank.ua/docs/#operation--bank-currency-get)
 
 ```ruby
-bank_currency = Monobank.bank_currency
-bank_currency                   # Array
+    bank_currency = Monobank.bank_currency
+    bank_currency                   # Array
 ```
 
 ```ruby
-some_currency = bank_currency.first
-some_currency.class             # Monobank::Resources::Bank::Currency
+    some_currency = bank_currency.first
+    some_currency.class             # Monobank::Resources::Bank::Currency
 ```
 
 ```ruby
-some_currency.currency_code_a   # Integer, ISO 4217
-some_currency.currency_code_a   # Integer, ISO 4217
-some_currency.date              # Integer, Unix time in sec (use Time.at)
-some_currency.rate_sell         # Float
-some_currency.rate_buy          # Float
-some_currency.rate_cross        # Float
+    some_currency.currency_code_a   # Integer, ISO 4217
+    some_currency.currency_code_a   # Integer, ISO 4217
+    some_currency.date              # Integer, Unix time in sec (use Time.at)
+    some_currency.rate_sell         # Float
+    some_currency.rate_buy          # Float
+    some_currency.rate_cross        # Float
 ```
 
 #### :radio_button: Client Info
