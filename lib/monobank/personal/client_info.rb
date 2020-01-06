@@ -1,26 +1,23 @@
 require 'monobank/endpoint'
+require 'monobank/resources/personal/client_info'
 
 module Monobank
-  class Personal
+  module Personal
     class ClientInfo < Endpoint
-      ENDPOINT = 'personal/client-info'.freeze
+      ENDPOINT = '/personal/client-info'.freeze
 
-      def initialize(token)
+      def initialize(token:)
         @token = token
-      end
-
-      def call
-        connection.get("/#{ENDPOINT}", headers: headers )
       end
 
       private
 
-      attr_reader :token
+      def pathname
+        ENDPOINT
+      end
 
-      def headers
-        {
-          "X-Token" => token.to_s
-        }
+      def define_resources(attributes)
+        Monobank::Resources::Personal::ClientInfo.new(attributes)
       end
     end
   end
