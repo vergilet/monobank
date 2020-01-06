@@ -1,8 +1,5 @@
 # Monobank
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/monobank`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
@@ -20,9 +17,87 @@ Or install it yourself as:
 
     $ gem install monobank
 
-## Usage
+## Endpoints
 
-TODO: Write usage instructions here
+#### Bank Currency
+
+##### API Method: [operation--bank-currency-get](https://api.monobank.ua/docs/#operation--bank-currency-get)
+
+```ruby
+bank_currency = Monobank.bank_currency
+bank_currency       # Array
+```
+
+```ruby
+some_currency = bank_currency.first
+some_currency.class # Monobank::Resources::Bank::Currency
+```
+
+```ruby
+some_currency.currency_code_a   # Integer, ISO 4217
+some_currency.currency_code_a   # Integer, ISO 4217
+some_currency.date              # Integer, Unix time in sec (use Time.at)
+some_currency.rate_sell         # Float
+some_currency.rate_buy          # Float
+some_currency.rate_cross        # Float
+```
+
+#### Client Info
+
+##### API Method: [operation--personal-client-info-get](https://api.monobank.ua/docs/#operation--personal-client-info-get)
+
+```ruby
+client_info = Monobank.client_info(token: YOUR_MONO_TOKEN)
+client_info     # Monobank::Resources::Personal::ClientInfo
+```
+```ruby
+client_info.name                # String, client name
+client_info.web_hook_url        # String, webhook url 
+client_info.accounts            # array of accounts (type Monobank::Resources::Personal::Account)
+```
+##### Account
+
+```ruby
+account = client_info.accounts.first
+account     # Monobank::Resources::Personal::Account
+```
+```ruby
+account.id                      # String, Account identifier
+account.balance                 # Integer, Balance in cents
+account.credit_limit            # Integer, Credit limit
+account.currency_code           # Integer, ISO 4217
+account.cashback_type           # String, None, UAH, Miles 
+```
+
+#### Statement
+
+##### API Method: [operation--personal-statement--account---from---to--get](https://api.monobank.ua/docs/#operation--personal-statement--account---from---to--get)
+
+```ruby
+account_id = ACCOUNT_ID     # Integer, ClientInfo -> Account ID
+from = 1575721820           # Integer, Unix time in sec (use Time.at)
+
+statements = Monobank.statement(token: MONO_TOKEN, account_id: ACCOUNT_ID, from: 1575721820)
+statements                  # array of accounts (type Monobank::Resources::Personal::Statement)
+```
+
+```ruby
+statement = statements.first
+statement                   # Monobank::Resources::Personal::Statement
+```
+```ruby
+statement.id                # String, transaction ID
+statement.time              # Integer, Unix time in sec (use Time.at)
+statement.description       # String, transaction description
+statement.mcc               # Integer, Merchant Category Code, (ISO 18245)
+statement.hold              # Boolean, Lock status
+statement.amount            # Integer, Amount in cents
+statement.operation_amount  # Integer, Amount in cents
+statement.currency_code     # Integer, ISO 4217
+statement.commission_rate   # Integer, commission amount in cents
+statement.cashback_amount   # Integer, cashback amount in cents
+statement.balance           # Integer, balance in cents
+```
 
 ## Development
 
