@@ -25,12 +25,12 @@ Or install it yourself as:
 
 ```ruby
 bank_currency = Monobank.bank_currency
-bank_currency       # Array
+bank_currency                   # Array
 ```
 
 ```ruby
 some_currency = bank_currency.first
-some_currency.class # Monobank::Resources::Bank::Currency
+some_currency.class             # Monobank::Resources::Bank::Currency
 ```
 
 ```ruby
@@ -48,7 +48,7 @@ some_currency.rate_cross        # Float
 
 ```ruby
 client_info = Monobank.client_info(token: YOUR_MONO_TOKEN)
-client_info     # Monobank::Resources::Personal::ClientInfo
+client_info                     # Monobank::Resources::Personal::ClientInfo
 ```
 ```ruby
 client_info.name                # String, client name
@@ -59,7 +59,7 @@ client_info.accounts            # array of accounts (type Monobank::Resources::P
 
 ```ruby
 account = client_info.accounts.first
-account     # Monobank::Resources::Personal::Account
+account                         # Monobank::Resources::Personal::Account
 ```
 ```ruby
 account.id                      # String, Account identifier
@@ -76,7 +76,9 @@ account.cashback_type           # String, None, UAH, Miles
 ```ruby
 account_id = ACCOUNT_ID     # Integer, ClientInfo -> Account ID
 from = 1575721820           # Integer, Unix time in sec (use Time.at)
+```
 
+```ruby
 statements = Monobank.statement(token: MONO_TOKEN, account_id: ACCOUNT_ID, from: 1575721820)
 statements                  # array of accounts (type Monobank::Resources::Personal::Statement)
 ```
