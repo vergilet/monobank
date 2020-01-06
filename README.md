@@ -132,6 +132,6 @@ Feel free to contribute:
 ## License
 The gem is available as open source under the terms of the MIT License.
 
-Copyright © 2017 Yaro.
+Copyright © 2020 Yaro & Tolik.
 
 [![GitHub license](https://img.shields.io/dub/l/vibe-d.svg)](https://raw.githubusercontent.com/vergilet/monobank/master/LICENSE)
