@@ -17,7 +17,7 @@ Or install it yourself as:
 
     $ gem install monobank
 
-## Endpoints
+## :radio_button: Endpoints
 
 Use available methods to gather needed data:
 
