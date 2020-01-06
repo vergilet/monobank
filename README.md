@@ -89,7 +89,7 @@ Use available methods to gather needed data:
 ##### API Method: [personal-statement](https://api.monobank.ua/docs/#operation--personal-statement--account---from---to--get)
 
 ```ruby
-    account_id = ACCOUNT_ID     # Integer, ClientInfo -> Account ID
+    account_id = 'QWERTY-1SdSD' # String, ClientInfo -> Account ID
     from = 1575721820           # Integer, Unix time in sec (use Time.at)
 ```
 
