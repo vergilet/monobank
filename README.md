@@ -9,7 +9,7 @@
 
 # Monobank
 
-:smirk_cat: Unofficial Ruby Gem for [Monobank API](https://api.monobank.ua/docs/).
+Unofficial Ruby Gem for [Monobank API](https://api.monobank.ua/docs/).
 
 ## Installation
 
@@ -42,11 +42,11 @@ Monobank.client_info(token: YOUR_MONO_TOKEN)
 Monobank.statement(token: YOUR_MONO_TOKEN, account_id: ACCOUNT_ID, from: 1575721820)
 ```
 
-### :small_blue_diamond:Public data
+### Public data
 
 General information provided without authorization.
 
-#### :radio_button: Bank Currency
+#### Bank Currency
 
 ##### API Method: [bank-currency](https://api.monobank.ua/docs/#operation--bank-currency-get)
 
@@ -76,11 +76,11 @@ some_currency.rate_cross        # Float
 some_currency.attributes        # Hash with all fields above
 ```
 
-### :small_orange_diamond:Personal data
+### Personal data
 
 Information provided only with the access token that the client can obtain in his personal account [Monobank API](https://api.monobank.ua/)
 
-#### :radio_button: Client Info
+#### Client Info
 
 ##### API Method: [personal-client-info](https://api.monobank.ua/docs/#operation--personal-client-info-get)
 
@@ -99,7 +99,7 @@ client_info.accounts            # array of accounts (type Monobank::Resources::P
 
 client_info.attributes          # Hash with all fields above
 ```
-##### :link:Account
+##### Client Info > Account
 
 ```ruby
 account = client_info.accounts.first
@@ -115,7 +115,7 @@ account.cashback_type           # String, None, UAH, Miles
 account.attributes              # Hash with all fields above
 ```
 
-#### :radio_button: Statement
+#### Statement
 
 ##### API Method: [personal-statement](https://api.monobank.ua/docs/#operation--personal-statement--account---from---to--get)
 
@@ -155,7 +155,7 @@ statement.balance           # Integer, balance in cents
 statement.attributes        # Hash with all fields above
 ```
 
-#### :radio_button: Set WebHook
+#### Set WebHook
 
 ##### API Method: [personal-webhook](https://api.monobank.ua/docs/#operation--personal-webhook-post)
 
