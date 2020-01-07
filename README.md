@@ -27,21 +27,24 @@ Or install it yourself as:
 
     $ gem install monobank
 
-## :radio_button: Endpoints
+## Endpoints
 
-Use available methods to gather needed data:
+Use available methods to gather needed data from Monobank API:
 
 ```ruby
-    # Bank currency
-    Monobank.bank_currency
+# Bank currency
+Monobank.bank_currency
 
-    # Client Info
-    Monobank.client_info(token: YOUR_MONO_TOKEN)
+# Client Info
+Monobank.client_info(token: YOUR_MONO_TOKEN)
 
-    # Statement
-    Monobank.statement(token: YOUR_MONO_TOKEN, account_id: ACCOUNT_ID, from: 1575721820)
+# Statement
+Monobank.statement(token: YOUR_MONO_TOKEN, account_id: ACCOUNT_ID, from: 1575721820)
 ```
 
+### Public data
+
+General information provided without authorization.
 
 #### :radio_button: Bank Currency
 
@@ -49,23 +52,27 @@ Use available methods to gather needed data:
 
 
 ```ruby
-    bank_currency = Monobank.bank_currency
-    bank_currency                   # Array
+bank_currency = Monobank.bank_currency
+bank_currency                   # Array
 ```
 
 ```ruby
-    some_currency = bank_currency.first
-    some_currency.class             # Monobank::Resources::Bank::Currency
+some_currency = bank_currency.first
+some_currency.class             # Monobank::Resources::Bank::Currency
 ```
 
 ```ruby
-    some_currency.currency_code_a   # Integer, ISO 4217
-    some_currency.currency_code_a   # Integer, ISO 4217
-    some_currency.date              # Integer, Unix time in sec (use Time.at)
-    some_currency.rate_sell         # Float
-    some_currency.rate_buy          # Float
-    some_currency.rate_cross        # Float
+some_currency.currency_code_a   # Integer, ISO 4217
+some_currency.currency_code_a   # Integer, ISO 4217
+some_currency.date              # Integer, Unix time in sec (use Time.at)
+some_currency.rate_sell         # Float
+some_currency.rate_buy          # Float
+some_currency.rate_cross        # Float
 ```
+
+### Personal data
+
+Information provided only with the access token that the client can obtain in his personal account [Monobank API](https://api.monobank.ua/)
 
 #### :radio_button: Client Info
 
