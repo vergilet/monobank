@@ -132,7 +132,7 @@ from = 1575721820           # Integer, Unix time in sec (use Time.at)
 
 ```ruby
 statements = Monobank.statement(token: YOUR_MONO_TOKEN, account_id: ACCOUNT_ID, from: 1575721820)
-statements                  # array of accounts (type Monobank::Resources::Personal::Statement)
+statements                  # array of statements (type Monobank::Resources::Personal::Statement)
 ```
 
 ```ruby
