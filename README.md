@@ -99,7 +99,7 @@ client_info.accounts            # array of accounts (type Monobank::Resources::P
 
 client_info.attributes          # Hash with all fields above
 ```
-##### :heavy_minus_sign::radio_button: Account
+##### :heavy_minus_sign: Account
 
 ```ruby
 account = client_info.accounts.first
@@ -157,7 +157,7 @@ statement.attributes        # Hash with all fields above
 
 #### :radio_button: Set WebHook
 
-##### API Method: [personal-statement](https://api.monobank.ua/docs/#operation--personal-statement--account---from---to--get)
+##### API Method: [personal-webhook](https://api.monobank.ua/docs/#operation--personal-webhook-post)
 
 `POST /personal/webhook`
 
