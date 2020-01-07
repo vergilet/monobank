@@ -42,7 +42,7 @@ Monobank.client_info(token: YOUR_MONO_TOKEN)
 Monobank.statement(token: YOUR_MONO_TOKEN, account_id: ACCOUNT_ID, from: 1575721820)
 ```
 
-### Public data
+### :small_blue_diamond:Public data
 
 General information provided without authorization.
 
@@ -76,7 +76,7 @@ some_currency.rate_cross        # Float
 some_currency.attributes        # Hash with all fields above
 ```
 
-### Personal data
+### :small_orange_diamond:Personal data
 
 Information provided only with the access token that the client can obtain in his personal account [Monobank API](https://api.monobank.ua/)
 
