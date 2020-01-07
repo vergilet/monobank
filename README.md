@@ -50,6 +50,10 @@ General information provided without authorization.
 
 ##### API Method: [bank-currency](https://api.monobank.ua/docs/#operation--bank-currency-get)
 
+GET /bank/currency
+
+Get a basic list of monobank exchange rates. The information is cached and updated at least once every 5 minutes.
+
 
 ```ruby
 bank_currency = Monobank.bank_currency
@@ -68,6 +72,8 @@ some_currency.date              # Integer, Unix time in sec (use Time.at)
 some_currency.rate_sell         # Float
 some_currency.rate_buy          # Float
 some_currency.rate_cross        # Float
+
+some_currency.attributes        # Hash with all fields above
 ```
 
 ### Personal data
@@ -86,6 +92,8 @@ client_info                     # Monobank::Resources::Personal::ClientInfo
 client_info.name                # String, client name
 client_info.web_hook_url        # String, webhook url 
 client_info.accounts            # array of accounts (type Monobank::Resources::Personal::Account)
+
+client_info.attributes          # Hash with all fields above
 ```
 ##### :heavy_minus_sign::radio_button: Account
 
@@ -99,6 +107,8 @@ account.balance                 # Integer, Balance in cents
 account.credit_limit            # Integer, Credit limit
 account.currency_code           # Integer, ISO 4217
 account.cashback_type           # String, None, UAH, Miles 
+
+account.attributes              # Hash with all fields above
 ```
 
 #### :radio_button: Statement
@@ -131,7 +141,13 @@ statement.currency_code     # Integer, ISO 4217
 statement.commission_rate   # Integer, commission amount in cents
 statement.cashback_amount   # Integer, cashback amount in cents
 statement.balance           # Integer, balance in cents
+
+statement.attributes        # Hash with all fields above
 ```
+
+#### :radio_button: Statement
+
+##### API Method: [personal-statement](https://api.monobank.ua/docs/#operation--personal-statement--account---from---to--get)
 
 ## Contributing
 
