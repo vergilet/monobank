@@ -50,9 +50,9 @@ General information provided without authorization.
 
 ##### API Method: [bank-currency](https://api.monobank.ua/docs/#operation--bank-currency-get)
 
-GET /bank/currency
+`GET /bank/currency`
 
-Get a basic list of monobank exchange rates. The information is cached and updated at least once every 5 minutes.
+*Get a basic list of monobank exchange rates. The information is cached and updated at least once every 5 minutes.*
 
 
 ```ruby
