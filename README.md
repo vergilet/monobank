@@ -79,26 +79,26 @@ Information provided only with the access token that the client can obtain in hi
 ##### API Method: [personal-client-info](https://api.monobank.ua/docs/#operation--personal-client-info-get)
 
 ```ruby
-    client_info = Monobank.client_info(token: YOUR_MONO_TOKEN)
-    client_info                     # Monobank::Resources::Personal::ClientInfo
+client_info = Monobank.client_info(token: YOUR_MONO_TOKEN)
+client_info                     # Monobank::Resources::Personal::ClientInfo
 ```
 ```ruby
-    client_info.name                # String, client name
-    client_info.web_hook_url        # String, webhook url 
-    client_info.accounts            # array of accounts (type Monobank::Resources::Personal::Account)
+client_info.name                # String, client name
+client_info.web_hook_url        # String, webhook url 
+client_info.accounts            # array of accounts (type Monobank::Resources::Personal::Account)
 ```
 ##### :heavy_minus_sign::radio_button: Account
 
 ```ruby
-    account = client_info.accounts.first
-    account                         # Monobank::Resources::Personal::Account
+account = client_info.accounts.first
+account                         # Monobank::Resources::Personal::Account
 ```
 ```ruby
-    account.id                      # String, Account identifier
-    account.balance                 # Integer, Balance in cents
-    account.credit_limit            # Integer, Credit limit
-    account.currency_code           # Integer, ISO 4217
-    account.cashback_type           # String, None, UAH, Miles 
+account.id                      # String, Account identifier
+account.balance                 # Integer, Balance in cents
+account.credit_limit            # Integer, Credit limit
+account.currency_code           # Integer, ISO 4217
+account.cashback_type           # String, None, UAH, Miles 
 ```
 
 #### :radio_button: Statement
@@ -106,31 +106,31 @@ Information provided only with the access token that the client can obtain in hi
 ##### API Method: [personal-statement](https://api.monobank.ua/docs/#operation--personal-statement--account---from---to--get)
 
 ```ruby
-    account_id = 'QWERTY-1SdSD' # String, ClientInfo -> Account ID
-    from = 1575721820           # Integer, Unix time in sec (use Time.at)
+account_id = 'QWERTY-1SdSD' # String, ClientInfo -> Account ID
+from = 1575721820           # Integer, Unix time in sec (use Time.at)
 ```
 
 ```ruby
-    statements = Monobank.statement(token: YOUR_MONO_TOKEN, account_id: ACCOUNT_ID, from: 1575721820)
-    statements                  # array of accounts (type Monobank::Resources::Personal::Statement)
+statements = Monobank.statement(token: YOUR_MONO_TOKEN, account_id: ACCOUNT_ID, from: 1575721820)
+statements                  # array of accounts (type Monobank::Resources::Personal::Statement)
 ```
 
 ```ruby
-    statement = statements.first
-    statement                   # Monobank::Resources::Personal::Statement
+statement = statements.first
+statement                   # Monobank::Resources::Personal::Statement
 ```
 ```ruby
-    statement.id                # String, transaction ID
-    statement.time              # Integer, Unix time in sec (use Time.at)
-    statement.description       # String, transaction description
-    statement.mcc               # Integer, Merchant Category Code, (ISO 18245)
-    statement.hold              # Boolean, Lock status
-    statement.amount            # Integer, Amount in cents
-    statement.operation_amount  # Integer, Amount in cents
-    statement.currency_code     # Integer, ISO 4217
-    statement.commission_rate   # Integer, commission amount in cents
-    statement.cashback_amount   # Integer, cashback amount in cents
-    statement.balance           # Integer, balance in cents
+statement.id                # String, transaction ID
+statement.time              # Integer, Unix time in sec (use Time.at)
+statement.description       # String, transaction description
+statement.mcc               # Integer, Merchant Category Code, (ISO 18245)
+statement.hold              # Boolean, Lock status
+statement.amount            # Integer, Amount in cents
+statement.operation_amount  # Integer, Amount in cents
+statement.currency_code     # Integer, ISO 4217
+statement.commission_rate   # Integer, commission amount in cents
+statement.cashback_amount   # Integer, cashback amount in cents
+statement.balance           # Integer, balance in cents
 ```
 
 ## Contributing
