@@ -84,6 +84,10 @@ Information provided only with the access token that the client can obtain in hi
 
 ##### API Method: [personal-client-info](https://api.monobank.ua/docs/#operation--personal-client-info-get)
 
+`GET /personal/client-info`
+
+*Receiving information about the client and a list of his accounts. Restrictions on the use of the function no more than once every 60 seconds.*
+
 ```ruby
 client_info = Monobank.client_info(token: YOUR_MONO_TOKEN)
 client_info                     # Monobank::Resources::Personal::ClientInfo
