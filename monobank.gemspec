@@ -1,13 +1,13 @@
 require_relative 'lib/monobank/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "monobank"
+  spec.name          = 'monobank'
   spec.version       = Monobank::VERSION
-  spec.authors       = ["vergilet"]
+  spec.authors       = %w(vergilet anatoliikryvishyn)
   spec.email         = ["osyaroslav@gmail.com"]
 
-  spec.summary       = %q{monobank}
-  spec.description   = %q{monobank}
+  spec.description   = %q{Unofficial Ruby Gem for Monobank API.}
+  spec.summary       = spec.description
   spec.homepage      = "https://github.com/vergilet/monobank"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
