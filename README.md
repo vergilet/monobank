@@ -167,6 +167,18 @@ statement.attributes        # Hash with all fields above
 
 ...
 
+#### Errors
+
+Error object with code and description.
+
+```ruby
+error                       # Monobank::Resources::Error
+
+error.code                  # Integer, (e.g. 429 for Too many requests)
+error.error_description     # String, Error description
+
+error.attributes            # Hash with all fields above
+```
 
 ## Contributing
 
