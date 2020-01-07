@@ -119,6 +119,12 @@ account.attributes              # Hash with all fields above
 
 ##### API Method: [personal-statement](https://api.monobank.ua/docs/#operation--personal-statement--account---from---to--get)
 
+`GET /personal/statement/{account}/{from}/{to}`
+
+*Receiving a statement {from} - {to} time in seconds in Unix time format. 
+The maximum time for which it is possible to receive a statement is 31 days + 1 hour (2682000 seconds).
+Limit on using the function no more than 1 time in 60 seconds.*
+
 ```ruby
 account_id = 'QWERTY-1SdSD' # String, ClientInfo -> Account ID
 from = 1575721820           # Integer, Unix time in sec (use Time.at)
@@ -149,9 +155,18 @@ statement.balance           # Integer, balance in cents
 statement.attributes        # Hash with all fields above
 ```
 
-#### :radio_button: Statement
+#### :radio_button: Set WebHook
 
 ##### API Method: [personal-statement](https://api.monobank.ua/docs/#operation--personal-statement--account---from---to--get)
+
+`POST /personal/webhook`
+
+*Specifying the URL of the user to which a POST request will be made in `{type: "StatementItem" format, data: {account: "...", statementItem: {# StatementItem}}}`. If the customer service does not respond within 5s to the command, the service will retry within 60 and 600 seconds. If no response is received on the third attempt, the function will be disabled.*
+
+- *WORK IN PROGRESS*
+
+...
+
 
 ## Contributing
 
