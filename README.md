@@ -67,7 +67,7 @@ some_currency.class             # Monobank::Resources::Bank::Currency
 
 ```ruby
 some_currency.currency_code_a   # Integer, ISO 4217
-some_currency.currency_code_a   # Integer, ISO 4217
+some_currency.currency_code_b   # Integer, ISO 4217
 some_currency.date              # Integer, Unix time in sec (use Time.at)
 some_currency.rate_sell         # Float
 some_currency.rate_buy          # Float
