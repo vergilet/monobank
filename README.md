@@ -163,7 +163,9 @@ statement.attributes        # Hash with all fields above
 
 *Specifying the URL of the user to which a POST request will be made in `{type: "StatementItem" format, data: {account: "...", statementItem: {# StatementItem}}}`. If the customer service does not respond within 5s to the command, the service will retry within 60 and 600 seconds. If no response is received on the third attempt, the function will be disabled.*
 
-- *WORK IN PROGRESS*
+```
+*WORK IN PROGRESS*
+```
 
 ...
 
@@ -172,7 +174,7 @@ statement.attributes        # Hash with all fields above
 Error object with code and description.
 
 ```ruby
-error                       # Monobank::Resources::Error
+error.class                 # Monobank::Resources::Error
 
 error.code                  # Integer, (e.g. 429 for Too many requests)
 error.error_description     # String, Error description
