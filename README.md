@@ -99,7 +99,7 @@ client_info.accounts            # array of accounts (type Monobank::Resources::P
 
 client_info.attributes          # Hash with all fields above
 ```
-##### :heavy_minus_sign: Account
+##### :link:Account
 
 ```ruby
 account = client_info.accounts.first
