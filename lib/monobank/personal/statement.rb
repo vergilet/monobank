@@ -1,9 +1,9 @@
-require 'monobank/endpoint'
+require 'monobank/methods/get'
 require 'monobank/resources/personal/statement'
 
 module Monobank
   module Personal
-    class Statement < Endpoint
+    class Statement < Get
       ENDPOINT = '/personal/statement'.freeze
 
       def initialize(token:, account_id:, from:, to:)

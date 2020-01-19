@@ -1,9 +1,9 @@
-require 'monobank/endpoint'
+require 'monobank/methods/get'
 require 'monobank/resources/personal/client_info'
 
 module Monobank
   module Personal
-    class ClientInfo < Endpoint
+    class ClientInfo < Get
       ENDPOINT = '/personal/client-info'.freeze
 
       def initialize(token:)
