@@ -164,7 +164,7 @@ statement.attributes        # Hash with all fields above
 
 `POST /personal/webhook`
 
-*Sends json ~ `{type:"StatementItem", data:{account:"...", statementItem:{#StatementItem}}}` to url provided by user*
+*Sends json ~ `{type:"StatementItem", data:{account:"...", statementItem:{#StatementItem}}}` to WEBHOOK_URL*
 
 ```ruby
 webhook = Monobank.set_webhook(token: YOUR_MONO_TOKEN,  url: WEBHOOK_URL)
