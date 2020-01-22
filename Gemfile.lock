@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    monobank (0.1.2)
+    monobank (0.2.0)
       hashable (~> 0.1.2)
       httparty (~> 0.17.3)
 

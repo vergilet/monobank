@@ -4,9 +4,10 @@ module Monobank
   module Methods
     class Base
       def call
-        return define_resources(response) if response.success?
+        attributes = response
+        return define_resources(attributes) if attributes.code == 200
 
-        Monobank::Resources::Error.new(response.merge('code' => response.code))
+        Monobank::Resources::Error.new(attributes.merge('code' => attributes.code))
       end
 
       private
