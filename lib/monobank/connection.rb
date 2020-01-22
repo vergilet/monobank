@@ -8,5 +8,9 @@ module Monobank
     def get(pathname, options = {})
       self.class.get(pathname, options)
     end
+
+    def post(pathname, options = {})
+      self.class.post(pathname, options)
+    end
   end
 end
