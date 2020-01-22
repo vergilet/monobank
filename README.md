@@ -40,6 +40,9 @@ Monobank.client_info(token: YOUR_MONO_TOKEN)
 
 # Statement
 Monobank.statement(token: YOUR_MONO_TOKEN, account_id: ACCOUNT_ID, from: 1575721820)
+
+# Set webhook
+Monobank.set_webhook(token: YOUR_MONO_TOKEN,  url: WEBHOOK_URL)
 ```
 
 ### Public data
@@ -160,12 +163,18 @@ statement.attributes        # Hash with all fields above
 ##### API Method: [personal-webhook](https://api.monobank.ua/docs/#operation--personal-webhook-post)
 
 `POST /personal/webhook`
+*Sends json ~ `{type:"StatementItem", data:{account:"...", statementItem:{#StatementItem}}}` to url provided by user*
 
+```ruby
+webhook = Monobank.set_webhook(token: YOUR_MONO_TOKEN,  url: WEBHOOK_URL)
+webhook                     # Monobank::Resources::Personal::Webhhok
 ```
-*WORK IN PROGRESS*
+```ruby
+webhook.status              # String, "ok" if ok :)
+
+webhook.attributes          # Hash with all fields above
 ```
 
-...
 
 #### Errors
 
