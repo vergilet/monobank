@@ -1,9 +1,9 @@
-require 'monobank/endpoint'
+require 'monobank/methods/get'
 require 'monobank/resources/bank/currency'
 
 module Monobank
   module Bank
-    class Currency < Endpoint
+    class Currency < Methods::Get
       ENDPOINT = '/bank/currency'.freeze
 
       private

@@ -3,7 +3,7 @@ require 'monobank/resources/personal/webhook'
 
 module Monobank
   module Personal
-    class Webhook < Post
+    class Webhook < Methods::Post
       ENDPOINT = '/personal/webhook'.freeze
 
       def initialize(token:, url:)

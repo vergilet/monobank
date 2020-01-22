@@ -3,7 +3,7 @@ require 'monobank/resources/personal/statement'
 
 module Monobank
   module Personal
-    class Statement < Get
+    class Statement < Methods::Get
       ENDPOINT = '/personal/statement'.freeze
 
       def initialize(token:, account_id:, from:, to:)

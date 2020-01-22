@@ -4,10 +4,9 @@ module Monobank
   module Methods
     class Base
       def call
-        attributes = response.parsed_response
-        return define_resources(attributes) if attributes.success?
+        return define_resources(response) if response.success?
 
-        Monobank::Resources::Error.new(attributes.merge('code' => attributes.code))
+        Monobank::Resources::Error.new(response.merge('code' => response.code))
       end
 
       private
@@ -20,7 +19,7 @@ module Monobank
 
       def options
         {
-          headers: { "X-Token" => token.to_s },
+          headers: { 'X-Token' => token.to_s },
           body: body.to_json
         }
       end

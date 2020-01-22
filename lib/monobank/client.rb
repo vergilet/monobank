@@ -18,7 +18,7 @@ module Monobank
       Personal::Statement.new(token: token, account_id: account_id, from: from, to: to).call
     end
 
-    def webhook(token:, url:)
+    def set_webhook(token:, url:)
       Personal::Webhook.new(token: token, url: url).call
     end
   end

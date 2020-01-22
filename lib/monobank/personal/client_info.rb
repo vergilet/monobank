@@ -3,7 +3,7 @@ require 'monobank/resources/personal/client_info'
 
 module Monobank
   module Personal
-    class ClientInfo < Get
+    class ClientInfo < Methods::Get
       ENDPOINT = '/personal/client-info'.freeze
 
       def initialize(token:)
