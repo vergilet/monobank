@@ -163,6 +163,7 @@ statement.attributes        # Hash with all fields above
 ##### API Method: [personal-webhook](https://api.monobank.ua/docs/#operation--personal-webhook-post)
 
 `POST /personal/webhook`
+
 *Sends json ~ `{type:"StatementItem", data:{account:"...", statementItem:{#StatementItem}}}` to url provided by user*
 
 ```ruby
