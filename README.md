@@ -39,7 +39,7 @@ Monobank.bank_currency
 Monobank.client_info(token: YOUR_MONO_TOKEN)
 
 # Statement
-Monobank.statement(token: YOUR_MONO_TOKEN, account_id: ACCOUNT_ID, from: 1575721820)
+Monobank.statement(token: YOUR_MONO_TOKEN, account_id: ACCOUNT_ID, from: 1546304461, to: 1546306461) 
 
 # Set webhook
 Monobank.set_webhook(token: YOUR_MONO_TOKEN,  url: WEBHOOK_URL)
@@ -130,11 +130,12 @@ Limit on using the function no more than 1 time in 60 seconds.*
 
 ```ruby
 account_id = 'QWERTY-1SdSD' # String, ClientInfo -> Account ID
-from = 1575721820           # Integer, Unix time in sec (use Time.at)
+from = 1546304461           # Integer, Unix time in sec (use Time.at)
+to = 1546306461             # Integer, Optional, uses current time if blank
 ```
 
 ```ruby
-statements = Monobank.statement(token: YOUR_MONO_TOKEN, account_id: ACCOUNT_ID, from: 1575721820)
+statements = Monobank.statement(token: YOUR_MONO_TOKEN, account_id: ACCOUNT_ID, from: 1546304461, to: 1546306461)
 statements                  # array of statements (type Monobank::Resources::Personal::Statement)
 ```
 
