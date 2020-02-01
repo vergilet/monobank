@@ -1,15 +1,12 @@
 PATH
   remote: .
   specs:
-    monobank (0.2.0)
-      hashable (~> 0.1.2)
+    monobank (0.2.1)
       httparty (~> 0.17.3)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    diff-lcs (1.3)
-    hashable (0.1.2)
     httparty (0.17.3)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
@@ -17,28 +14,12 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2019.1009)
     multi_xml (0.6.0)
-    rake (12.3.3)
-    rspec (3.9.0)
-      rspec-core (~> 3.9.0)
-      rspec-expectations (~> 3.9.0)
-      rspec-mocks (~> 3.9.0)
-    rspec-core (3.9.1)
-      rspec-support (~> 3.9.1)
-    rspec-expectations (3.9.0)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.9.0)
-    rspec-mocks (3.9.1)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.9.0)
-    rspec-support (3.9.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   monobank!
-  rake (~> 12.0)
-  rspec (~> 3.0)
 
 BUNDLED WITH
    1.17.3

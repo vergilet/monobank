@@ -16,9 +16,8 @@ Gem::Specification.new do |spec|
   spec.metadata["source_code_uri"] = "https://github.com/vergilet/monobank"
   spec.metadata["changelog_uri"] = "https://github.com/vergilet/monobank"
 
-  spec.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
+  spec.files = Dir['{lib}/**/*', 'MIT-LICENSE', 'Rakefile']
   spec.test_files = Dir['spec/**/*']
 
-  spec.add_dependency 'hashable', '~> 0.1.2'
   spec.add_dependency 'httparty', '~> 0.17.3'
 end
