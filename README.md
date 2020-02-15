@@ -130,8 +130,8 @@ Limit on using the function no more than 1 time in 60 seconds.*
 
 ```ruby
 account_id = 'QWERTY-1SdSD' # String, ClientInfo -> Account ID
-from = 1546304461           # Integer, Unix time in sec (use Time.at)
-to = 1546306461             # Integer, Optional, uses current time if blank
+from       = 1546304461     # Integer, Unix time in sec (use Time.at)
+to         = 1546306461     # Integer, Optional, uses current time if blank
 ```
 
 ```ruby
