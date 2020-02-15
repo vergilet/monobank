@@ -210,3 +210,5 @@ The gem is available as open source under the terms of the MIT License.
 Copyright © 2020 Yaro & Tolik.
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen)](https://raw.githubusercontent.com/vergilet/monobank/master/LICENSE.txt)
+
+**That's all folks.**
