@@ -79,6 +79,9 @@ some_currency.rate_cross        # Float
 some_currency.attributes        # Hash with all fields above
 ```
 
+*(!) About [ISO 4217](https://uk.wikipedia.org/wiki/%D0%9A%D0%BB%D0%B0%D1%81%D0%B8%D1%84%D1%96%D0%BA%D0%B0%D1%86%D1%96%D1%8F_%D0%B2%D0%B0%D0%BB%D1%8E%D1%82_(ISO_4217)?section=2#%D0%9F%D0%B5%D1%80%D0%B5%D0%BB%D1%96%D0%BA_%D0%B4%D1%96%D1%8E%D1%87%D0%B8%D1%85_%D0%BA%D0%BE%D0%B4%D1%96%D0%B2).* 
+
+
 ### Personal data
 
 Information provided only with the access token that the client can obtain in his personal account [Monobank API](https://api.monobank.ua/)
