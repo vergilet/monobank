@@ -5,8 +5,58 @@
 
 .page-header {
   background: #d4f1ff linear-gradient(to top, #ebd4ff,#d4f1ff);
+
+  .project-name {
+    color: #000;
+  }
+  .project-tagline {
+    color: #000;
+  }
+
+  .btn{
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+    padding-top: 1px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 100px;
+    border-color: rgba(255,255,255,0);
+    line-height: 40px;
+    display: inline-block;
+    background-color: #fa5255;
+    box-shadow: 0 0 0 1px transparent, 0 2px 8px 0 rgba(0,0,0,.2);
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+  }
 }
 
-.main-content {
+.some0 {
+  background: #505050;
+  border-top: 1px solid #a0a0a0;
+  border-bottom: 1px solid #a0a0a0;
+  height: 40px;
+}
+
+body {
   background: #d4fff3 linear-gradient(to bottom,#f4ffd9,#d4fff3);
+
+  .highlight {
+    border-radius: 4px;
+    box-shadow: 1px 2px 5px 0px #bdbdbd;
+    pre.highlight {
+      background-color: white;
+    }
+  }
+  .site-footer {
+    background: black;
+    color: white;
+
+    a {
+      color: red
+    }
+  }
 }
