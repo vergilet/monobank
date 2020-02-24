@@ -2,3 +2,11 @@
 ---
 
 @import "{{ site.theme }}";
+
+.page-header {
+  background: #d4f1ff linear-gradient(to top, #ebd4ff,#d4f1ff);
+}
+
+.main-content {
+  background: #d4fff3 linear-gradient(to bottom,#f4ffd9,#d4fff3);
+}
