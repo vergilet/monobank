@@ -14,12 +14,14 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2019.1009)
     multi_xml (0.6.0)
+    rake (13.0.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   monobank!
+  rake (~> 13.0, >= 13.0.0)
 
 BUNDLED WITH
    1.17.3
