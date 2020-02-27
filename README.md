@@ -7,6 +7,8 @@
    <a href="https://rubygems.org/gems/monobank"><img width="460" src="https://user-images.githubusercontent.com/2478436/71856112-95639280-30eb-11ea-932e-dd8cbe851858.png" /></a>
 </p>
 
+[![Build Status](https://travis-ci.org/vergilet/monobank.svg?branch=master)](https://travis-ci.org/vergilet/monobank)
+
 # Monobank
 
 Unofficial Ruby Gem for [Monobank API](https://api.monobank.ua/docs/).
