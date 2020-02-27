@@ -1,12 +1,6 @@
-<!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-
-
 <p align="right">
-    <!--a href="https://github.com/vergilet/monobank"><img align="" src="https://user-images.githubusercontent.com/2478436/51829223-cb05d600-22f5-11e9-9245-bc6e82dcf028.png" width="56" height="56" /></a-->
+    <a href="https://github.com/vergilet/monobank"><img align="" src="https://user-images.githubusercontent.com/2478436/51829223-cb05d600-22f5-11e9-9245-bc6e82dcf028.png" width="56" height="56" /></a>
 <a href="https://rubygems.org/gems/monobank"><img align="right" src="https://user-images.githubusercontent.com/2478436/51829691-c55cc000-22f6-11e9-99a5-42f88a8f2a55.png" width="56" height="56" /></a>
-<!-- Place this tag where you want the button to render. -->
-<a class="github-button" href="https://github.com/ntkme/github-buttons" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>    
 </p>
 <p align="center">
    <a href="https://rubygems.org/gems/monobank"><img width="460" src="https://user-images.githubusercontent.com/2478436/71856112-95639280-30eb-11ea-932e-dd8cbe851858.png" /></a>
