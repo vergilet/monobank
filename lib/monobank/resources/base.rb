@@ -18,11 +18,13 @@ module Monobank
       end
 
       def deep_snake_case(hash)
+        return hash unless hash.is_a?(Array) || hash.is_a?(Hash)
+
         hash.each_with_object({}) do |(key, value), object|
           object[method_name(key)] =
-            if value.kind_of? Hash
+            if value.is_a? Hash
               deep_snake_case(value)
-            elsif value.kind_of? Array
+            elsif value.is_a? Array
               value.map { |element| deep_snake_case(element) }
             else
               value
