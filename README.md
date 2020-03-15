@@ -40,7 +40,7 @@ Monobank.bank_currency
 Monobank.client_info(token: YOUR_MONO_TOKEN)
 
 # Statement
-Monobank.statement(token: YOUR_MONO_TOKEN, account_id: ACCOUNT_ID, from: 1546304461, to: 1546306461) # 31 days ago: (Date.today - 31).to_time.to_i
+Monobank.statement(token: YOUR_MONO_TOKEN, account_id: ACCOUNT_ID, from: 1546304461, to: 1546306461) # 30 days ago: (Date.today - 30).to_time.to_i
 
 # Set webhook
 Monobank.set_webhook(token: YOUR_MONO_TOKEN,  url: WEBHOOK_URL)
