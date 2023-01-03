@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.files = Dir['{lib}/**/*', 'MIT-LICENSE', 'Rakefile']
   spec.test_files = Dir['spec/**/*']
 
-  spec.add_dependency 'httparty', '~> 0.17.3'
+  spec.add_dependency 'httparty', '>= 0.17.3', '< 0.22.0'
   
   spec.add_development_dependency 'rake', '~> 13.0', '>= 13.0.0'
   spec.add_development_dependency 'rspec', '~> 3.8', '>= 3.8.0'
