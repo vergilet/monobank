@@ -97,7 +97,7 @@ Information provided only with the access token that the client can obtain in hi
 
 ```ruby
 client_info = Monobank.client_info(token: YOUR_MONO_TOKEN)
-client_info                     # Monobank::Resources::Personal::ClientInfo
+client_info.class               # Monobank::Resources::Personal::ClientInfo
 ```
 ```ruby
 client_info.name                # String, client name
@@ -110,7 +110,7 @@ client_info.attributes          # Hash with all fields above
 
 ```ruby
 account = client_info.accounts.first
-account                         # Monobank::Resources::Personal::Account
+account.class                   # Monobank::Resources::Personal::Account
 ```
 ```ruby
 account.id                      # String, Account identifier
@@ -145,7 +145,7 @@ statements                  # array of statements (type Monobank::Resources::Per
 
 ```ruby
 statement = statements.first
-statement                   # Monobank::Resources::Personal::Statement
+statement.class             # Monobank::Resources::Personal::Statement
 ```
 ```ruby
 statement.id                # String, transaction ID
@@ -173,7 +173,7 @@ statement.attributes        # Hash with all fields above
 
 ```ruby
 webhook = Monobank.set_webhook(token: YOUR_MONO_TOKEN,  url: WEBHOOK_URL)
-webhook                     # Monobank::Resources::Personal::Webhhok
+webhook.class               # Monobank::Resources::Personal::Webhhok
 ```
 ```ruby
 webhook.status              # String, "ok" if ok :)
