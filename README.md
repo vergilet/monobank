@@ -52,7 +52,7 @@ General information provided without authorization.
 
 #### Bank Currency
 
-##### API Method: [bank-currency](https://api.monobank.ua/docs/#operation--bank-currency-get)
+##### API Method: [bank-currency](https://api.monobank.ua/docs/#tag/Publichni-dani/paths/~1bank~1currency/get)
 
 `GET /bank/currency`
 
@@ -89,7 +89,7 @@ Information provided only with the access token that the client can obtain in hi
 
 #### Client Info
 
-##### API Method: [personal-client-info](https://api.monobank.ua/docs/#operation--personal-client-info-get)
+##### API Method: [personal-client-info](https://api.monobank.ua/docs/#tag/Kliyentski-personalni-dani/paths/~1personal~1client-info/get)
 
 `GET /personal/client-info`
 
@@ -124,7 +124,7 @@ account.attributes              # Hash with all fields above
 
 #### Statement
 
-##### API Method: [personal-statement](https://api.monobank.ua/docs/#operation--personal-statement--account---from---to--get)
+##### API Method: [personal-statement](https://api.monobank.ua/docs/#tag/Kliyentski-personalni-dani/paths/~1personal~1statement~1{account}~1{from}~1{to}/get)
 
 `GET /personal/statement/{account}/{from}/{to}`
 
@@ -165,7 +165,7 @@ statement.attributes        # Hash with all fields above
 
 #### Set WebHook
 
-##### API Method: [personal-webhook](https://api.monobank.ua/docs/#operation--personal-webhook-post)
+##### API Method: [personal-webhook](https://api.monobank.ua/docs/#tag/Kliyentski-personalni-dani/paths/~1personal~1webhook/post)
 
 `POST /personal/webhook`
 
