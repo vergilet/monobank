@@ -6,10 +6,6 @@ module Monobank
     class ClientInfo < Methods::Get
       ENDPOINT = '/personal/client-info'.freeze
 
-      def initialize(token:)
-        @token = token
-      end
-
       private
 
       def pathname

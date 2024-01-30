@@ -6,8 +6,9 @@ module Monobank
     class Statement < Methods::Get
       ENDPOINT = '/personal/statement'.freeze
 
-      def initialize(token:, account_id:, from:, to:)
-        @token = token
+      def initialize(account_id:, from:, to:, **rest)
+        super(**rest)
+
         @account_id = account_id
         @from = from
         @to = to

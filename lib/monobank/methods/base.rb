@@ -3,6 +3,10 @@ require 'monobank/resources/error'
 module Monobank
   module Methods
     class Base
+      def initialize(auth:)
+        @auth = auth
+      end
+
       def call
         attributes = response
         return define_resources(attributes) if attributes.code == 200
@@ -12,7 +16,7 @@ module Monobank
 
       private
 
-      attr_reader :token
+      attr_reader :auth
 
       def response
         raise NotImplementedError
@@ -20,7 +24,7 @@ module Monobank
 
       def options
         {
-          headers: { 'X-Token' => token.to_s },
+          headers: auth.to_headers,
           body: body.to_json
         }
       end

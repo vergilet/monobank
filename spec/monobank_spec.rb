@@ -4,7 +4,6 @@ describe Monobank do
   context '.bank_currency' do
     before do
       stub_request(:get, "https://api.monobank.ua/bank/currency").
-        with(headers: {'X-Token' => ''}).
         to_return(
           status: 200,
           body: [
