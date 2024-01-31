@@ -3,6 +3,10 @@ require 'monobank/personal/registration'
 require 'monobank/personal/registration_status'
 require 'monobank/personal/corporate_webhook'
 require 'monobank/personal/settings'
+require 'monobank/personal/auth_request'
+require 'monobank/personal/auth_check'
+require 'monobank/personal/client_info'
+require 'monobank/personal/statement'
 
 module Monobank
   module Corporate
@@ -26,6 +30,22 @@ module Monobank
 
       def settings
         Personal::Settings.new(auth:).call
+      end
+
+      def auth_request(callback: nil)
+        Personal::AuthRequest.new(callback:, auth:).call
+      end
+
+      def auth_check(request_id:)
+        Personal::AuthCheck.new(auth: auth(request_id:)).call
+      end
+
+      def client_info(request_id:)
+        Personal::ClientInfo.new(auth: auth(request_id:)).call
+      end
+
+      def statement(request_id:, account_id:, from:, to: nil)
+        Personal::Statement.new(account_id:, from:, to:, auth: auth(request_id:)).call
       end
 
       private

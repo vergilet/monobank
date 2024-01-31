@@ -28,9 +28,13 @@ module Monobank
 
       def options
         {
-          headers: auth&.to_headers(pathname:),
+          headers: (headers || {}).merge(auth&.to_headers(pathname:) || {}),
           body: body.to_json
         }
+      end
+
+      def headers
+        {}
       end
 
       def body; end
