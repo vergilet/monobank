@@ -5,7 +5,7 @@ module Monobank
         @token = token
       end
 
-      def to_headers
+      def to_headers(*)
         { 'X-Token' => token }
       end
 

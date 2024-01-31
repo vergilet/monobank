@@ -3,7 +3,7 @@ require 'monobank/resources/error'
 module Monobank
   module Methods
     class Base
-      def initialize(auth:)
+      def initialize(auth: nil)
         @auth = auth
       end
 
@@ -18,13 +18,17 @@ module Monobank
 
       attr_reader :auth
 
+      def pathname
+        raise NotImplementedError
+      end
+
       def response
         raise NotImplementedError
       end
 
       def options
         {
-          headers: auth.to_headers,
+          headers: auth&.to_headers(pathname:),
           body: body.to_json
         }
       end
