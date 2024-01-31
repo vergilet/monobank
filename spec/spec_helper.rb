@@ -1,5 +1,7 @@
 ENV['RAILS_ENV'] ||= 'test'
 
+require 'webmock/rspec'
+
 require 'monobank'
 
 ENGINE_RAILS_ROOT = File.join(File.dirname(__FILE__), '../')
