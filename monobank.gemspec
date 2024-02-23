@@ -3,7 +3,7 @@ require_relative 'lib/monobank/version'
 Gem::Specification.new do |spec|
   spec.name          = 'monobank'
   spec.version       = Monobank::VERSION
-  spec.authors       = %w(vergilet anatoliikryvishyn)
+  spec.authors       = %w(vergilet anatoliikryvishyn dreyks)
   spec.email         = ["osyaroslav@gmail.com"]
 
   spec.description   = %q{Unofficial Ruby Gem for Monobank API.}

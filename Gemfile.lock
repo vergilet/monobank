@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    monobank (0.2.3)
+    monobank (0.3.0)
       httparty (>= 0.21.0, < 0.22.0)
 
 GEM
