@@ -6,8 +6,9 @@ module Monobank
     class Webhook < Methods::Post
       ENDPOINT = '/personal/webhook'.freeze
 
-      def initialize(token:, url:)
-        @token = token
+      def initialize(url:, **rest)
+        super(**rest)
+
         @url = url
       end
 

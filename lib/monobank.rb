@@ -1,5 +1,6 @@
 require 'monobank/version'
 require 'monobank/client'
+require 'monobank/corporate'
 require 'forwardable'
 
 module Monobank

@@ -7,13 +7,22 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.8.6)
+      public_suffix (>= 2.0.2, < 6.0)
+    bigdecimal (3.1.6)
+    crack (0.4.6)
+      bigdecimal
+      rexml
     diff-lcs (1.5.0)
+    hashdiff (1.1.0)
     httparty (0.21.0)
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
     mini_mime (1.1.5)
     multi_xml (0.6.0)
+    public_suffix (5.0.4)
     rake (13.1.0)
+    rexml (3.2.6)
     rspec (3.12.0)
       rspec-core (~> 3.12.0)
       rspec-expectations (~> 3.12.0)
@@ -27,6 +36,10 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
     rspec-support (3.12.1)
+    webmock (3.19.1)
+      addressable (>= 2.8.0)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
 
 PLATFORMS
   arm64-darwin-22
@@ -36,6 +49,7 @@ DEPENDENCIES
   monobank!
   rake (~> 13.0, >= 13.0.0)
   rspec (~> 3.8, >= 3.8.0)
+  webmock
 
 BUNDLED WITH
    2.5.5
