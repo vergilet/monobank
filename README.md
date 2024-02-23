@@ -195,6 +195,10 @@ error.error_description     # String, Error description
 error.attributes            # Hash with all fields above
 ```
 
+### Corporate API
+
+For now please use specs as a documentation - [MonobankCorporate Spec](https://github.com/vergilet/monobank/blob/master/spec/monobank_corporate_spec.rb)
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at [https://github.com/vergilet/monobank](https://github.com/vergilet/monobank)
