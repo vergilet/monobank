@@ -2,7 +2,7 @@ describe Monobank::Corporate do
   let(:key_id) { nil }
 
   before do
-    allow(Time).to receive(:now).and_return(Time.parse('2024-01-31'))
+     allow(Time).to receive(:now).and_return(Time.utc(2024, 1, 30, 22, 0, 0))
 
     fake_private_key = OpenSSL::PKey::EC.new
     allow(fake_private_key).to(receive(:sign)) { |_, args| "__SIGNED__#{args}" }

@@ -28,22 +28,29 @@ Or install it yourself as:
 
     $ gem install monobank
 
-## Endpoints
+## API Modules
 
 Use available methods to gather needed data from Monobank API:
 
 ```ruby
-# Bank currency
+# --- Public API ---
+# Bank currency (no token needed)
 Monobank.bank_currency
 
+# --- Personal API ---
 # Client Info
-Monobank.client_info(token: YOUR_MONO_TOKEN)
+Monobank.client_info(token: 'YOUR_PERSONAL_TOKEN')
 
 # Statement
 Monobank.statement(token: YOUR_MONO_TOKEN, account_id: ACCOUNT_ID, from: 1546304461, to: 1546306461) # 30 days ago: (Date.today - 30).to_time.to_i
 
 # Set webhook
-Monobank.set_webhook(token: YOUR_MONO_TOKEN,  url: WEBHOOK_URL)
+Monobank.set_webhook(token: 'YOUR_PERSONAL_TOKEN',  url: 'WEBHOOK_URL')
+
+# --- Business API (for Legal Entities) ---
+Monobank::Business.configure(token: 'YOUR_BUSINESS_TOKEN')
+Monobank::Business.accounts
+Monobank::Business.statement(account: 'IBAN', from: 1672524000)
 ```
 
 ### Public data
@@ -58,25 +65,19 @@ General information provided without authorization.
 
 *Get a basic list of monobank exchange rates. The information is cached and updated at least once every 5 minutes.*
 
-
 ```ruby
 bank_currency = Monobank.bank_currency
-bank_currency                   # Array
+#=> returns an array of Monobank::Resources::Bank::Currency objects
 ```
 
 ```ruby
 some_currency = bank_currency.first
-some_currency.class             # Monobank::Resources::Bank::Currency
-```
-
-```ruby
 some_currency.currency_code_a   # Integer, ISO 4217
 some_currency.currency_code_b   # Integer, ISO 4217
 some_currency.date              # Integer, Unix time in sec (use Time.at)
 some_currency.rate_sell         # Float
 some_currency.rate_buy          # Float
 some_currency.rate_cross        # Float
-
 some_currency.attributes        # Hash with all fields above
 ```
 
@@ -93,13 +94,12 @@ Information provided only with the access token that the client can obtain in hi
 
 `GET /personal/client-info`
 
-*Receiving information about the client and a list of his accounts. Restrictions on the use of the function no more than once every 60 seconds.*
+*Receiving information about the client and a list of his accounts. Limit: no more than once every 60 seconds.*
 
 ```ruby
-client_info = Monobank.client_info(token: YOUR_MONO_TOKEN)
-client_info.class               # Monobank::Resources::Personal::ClientInfo
-```
-```ruby
+client_info = Monobank.client_info(token: 'YOUR_PERSONAL_TOKEN')
+#=> returns a Monobank::Resources::Personal::ClientInfo object
+
 client_info.name                # String, client name
 client_info.web_hook_url        # String, webhook url 
 client_info.accounts            # array of accounts (type Monobank::Resources::Personal::Account)
@@ -133,14 +133,12 @@ The maximum time for which it is possible to receive a statement is 31 days + 1 
 Limit on using the function no more than 1 time in 60 seconds.*
 
 ```ruby
-account_id = 'QWERTY-1SdSD' # String, ClientInfo -> Account ID
-from       = 1546304461     # Integer, Unix time in sec (use Time.at)
-to         = 1546306461     # Integer, Optional, uses current time if blank
-```
+account_id = 'QWERTY-1SdSD' # From client_info.accounts
+from       = (Time.now - 2682000).to_i # 24 hours ago
+to         = Time.now.to_i
 
-```ruby
-statements = Monobank.statement(token: YOUR_MONO_TOKEN, account_id: ACCOUNT_ID, from: 1546304461, to: 1546306461)
-statements                  # array of statements (type Monobank::Resources::Personal::Statement)
+statements = Monobank.statement(token: 'YOUR_PERSONAL_TOKEN', account_id: account_id, from: from, to: to)
+#=> returns an array of Monobank::Resources::Personal::Statement objects
 ```
 
 ```ruby
@@ -165,39 +163,108 @@ statement.attributes        # Hash with all fields above
 
 #### Set WebHook
 
-##### API Method: [personal-webhook](https://api.monobank.ua/docs/#tag/Kliyentski-personalni-dani/paths/~1personal~1webhook/post)
-
 `POST /personal/webhook`
 
+*Set a webhook URL to receive notifications about new transactions.*
 *Sends json ~ `{type:"StatementItem", data:{account:"...", statementItem:{#StatementItem}}}` to WEBHOOK_URL*
 
 ```ruby
-webhook = Monobank.set_webhook(token: YOUR_MONO_TOKEN,  url: WEBHOOK_URL)
-webhook.class               # Monobank::Resources::Personal::Webhhok
-```
-```ruby
-webhook.status              # String, "ok" if ok :)
+webhook = Monobank.set_webhook(token: 'YOUR_PERSONAL_TOKEN',  url: 'https://your.server/webhook')
+#=> returns a Monobank::Resources::Personal::Webhook object
 
+webhook.status              # String, "ok" if successful
 webhook.attributes          # Hash with all fields above
 ```
 
+### Business API (for Legal Entities)
 
-#### Errors
+DOCS: https://corp-api.monobank.ua/
 
-Error object with code and description.
+API for working with legal entity (business) accounts using the new token-based authentication. To get started, obtain an access token from the [Monobank Business web cabinet](http://web.monobank.ua/?modal=tokens). 
+
+First, configure the client with your token, typically in an initializer file (e.g., `config/initializers/monobank.rb`):
 
 ```ruby
-error.class                 # Monobank::Resources::Error
-
-error.code                  # Integer, (e.g. 429 for Too many requests)
-error.error_description     # String, Error description
-
-error.attributes            # Hash with all fields above
+Monobank::Business.configure(token: 'YOUR_BUSINESS_API_TOKEN')
 ```
 
-### Corporate API
+#### Get All Accounts
 
-For now please use specs as a documentation - [MonobankCorporate Spec](https://github.com/vergilet/monobank/blob/master/spec/monobank_corporate_spec.rb)
+`GET /ext/v1/accounts`
+
+*Get a list of all company accounts.*
+
+```ruby
+accounts = Monobank::Business.accounts
+#=> returns an array of Monobank::Resources::Business::Account objects
+
+account = accounts.first
+account.iban     # String
+account.currency # Integer, ISO 4217
+account.balance  # Float
+```
+
+#### Get a Specific Account
+
+`GET /ext/v1/accounts/{IBAN}`
+
+*Get details for a single account by its IBAN.*
+
+```ruby
+my_account = Monobank::Business.account(iban: 'UA753220010000026202340272045')
+#=> returns a single Monobank::Resources::Business::Account object
+
+my_account.balance #=> 42.0```
+```
+#### Get Account Statement
+
+`GET /ext/v1/statement/{account}/{from}/{to}`
+
+*Get a list of transactions for a specific account within a date range.*
+
+```ruby
+iban = 'UA753220010000026202340272045'
+one_week_ago = Time.now.to_i - (7 * 86400)
+
+transactions = Monobank::Business.statement(account: iban, from: one_week_ago)
+#=> returns an array of Monobank::Resources::Business::Statement objects
+
+tx = transactions.first
+tx.id          # String
+tx.time        # Integer, Unix time
+tx.destination # String
+tx.amount      # Integer, in cents
+```
+
+#### Get a Specific Transaction
+
+`GET /ext/v1/statement?id=...`
+
+*Get details for a single transaction by its unique ID.*
+
+```ruby
+transaction = Monobank::Business.statement_item(id: 'ea4f9218-d134-431a-9169-88acab4454c9')
+#=> returns a single Monobank::Resources::Business::Statement object
+
+transaction.status     # "DONE"
+transaction.amount     # 12345
+```
+
+### Error Handling
+
+If an API call fails, the gem returns a `Monobank::Resources::Error` object instead of raising an exception. You can check the class of the result to handle errors gracefully.
+
+```ruby
+result = Monobank::Business.statement(account: 'INVALID_IBAN', from: 1)
+
+if result.is_a?(Monobank::Resources::Error)
+  puts "An error occurred!"
+  puts "Code: #{result.code}"                 # e.g., 400
+  puts "Description: #{result.error_description}" # e.g., "Invalid IBAN"
+else
+  # Process successful result
+end
+```
 
 ## Contributing
 
@@ -205,12 +272,10 @@ Bug reports and pull requests are welcome on GitHub at [https://github.com/vergi
     
 Feel free to contribute:
 1. Fork it ([https://github.com/vergilet/monobank/fork](https://github.com/vergilet/monobank/fork))
-2. Create your feature branch (git checkout -b my-new-feature)
-3. Commit your changes (git commit -am 'Add some feature')
-4. Push to the branch (git push origin my-new-feature)
-5. Create new Pull Request
-
-
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
 
 ## License
 The gem is available as open source under the terms of the MIT License.
